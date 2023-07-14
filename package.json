@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test": "jest --forceExit",
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
@@ -18,12 +18,14 @@
     "express-rate-limit": "^6.7.1",
     "express-validation": "^4.1.0",
     "helmet": "^7.0.0",
+    "knex": "^2.5.1",
     "mongoose": "^7.3.4",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
     "jest": "^29.6.1",
+    "mongodb-memory-server": "^8.13.0",
     "supertest": "^6.3.3"
   }
 }

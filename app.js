@@ -1,96 +1,3 @@
-// const express = require('express');
-// const app = express();
-// const mongoose = require('mongoose');
-
-// app.use(express.json());
-
-// const productSchema = require('./models/productSchema');
-
-// const Product = mongoose.model('Product', productSchema);
-
-// // List Products
-// app.get('/products', async (req, res) => {
-//   try {
-//     const products = await Product.find({});
-//     res.json(products);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Failed to retrieve products' });
-//   }
-// });
-
-// // Create a Product
-// app.post('/products', async (req, res) => {
-//   try {
-//     const { name, price } = req.body;
-//     const product = await Product.create({ name, price });
-//     res.status(201).json(product);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Failed to create product' });
-//   }
-// });
-
-// // Get a Product
-// app.get('/products/:id', async (req, res) => {
-//   try {
-//     const productId = req.params.id;
-//     const product = await Product.findById(productId);
-//     if (product) {
-//       res.json(product);
-//     } else {
-//       res.status(404).json({ error: 'Product not found' });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Failed to retrieve product' });
-//   }
-// });
-
-// // Update a Product
-// app.put('/products/:id', async (req, res) => {
-//   try {
-//     const productId = req.params.id;
-//     const { name, price } = req.body;
-//     const product = await Product.findByIdAndUpdate(
-//       productId,
-//       { name, price },
-//       { new: true }
-//     );
-//     if (product) {
-//       res.json(product);
-//     } else {
-//       res.status(404).json({ error: 'Product not found' });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Failed to update product' });
-//   }
-// });
-
-// // Delete a Product
-// app.delete('/products/:id', async (req, res) => {
-//   try {
-//     const productId = req.params.id;
-//     const product = await Product.findByIdAndDelete(productId);
-//     if (product) {
-//       res.json(product);
-//     } else {
-//       res.status(404).json({ error: 'Product not found' });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Failed to delete product' });
-//   }
-// });
-
-// // Start the server
-// const port = process.env.PORT || 3000;
-// app.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
-
-
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -226,6 +133,9 @@ app.use((err, req, res) => {
   console.error(err);
   res.status(500).json({ error: 'Internal server error' });
 });
+
+// Export the app instance
+module.exports = app;
 
 // Start the server
 const port = process.env.PORT || 3000;
